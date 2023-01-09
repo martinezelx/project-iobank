@@ -29,6 +29,7 @@ and leave the current one only for accounts and transactions.
 4. Some change in the nomenclature of the method names may be necessary to better adapt it to the SOLID principle.
 5. Fix swagger schemas.
 6. Add more logs.
+7. The blockchain part of the project has not been possible for me to do it due to lack of time.
 
 ## Run tests
 You can use your favorite IDE to run the tests or use the following command:

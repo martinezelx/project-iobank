@@ -1,0 +1,849 @@
+{
+	"info": {
+		"_postman_id": "4c901a3a-64f6-4160-8650-39d08aade53a",
+		"name": "ioBank",
+		"description": "Rest API to simulate a small bank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api/v1/iobank",
+			"item": [
+				{
+					"name": "accounts",
+					"item": [
+						{
+							"name": "search",
+							"item": [
+								{
+									"name": "get Accounts",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/iobank/accounts/search",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"iobank",
+												"accounts",
+												"search"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/iobank/accounts/search",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"iobank",
+														"accounts",
+														"search"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "get Account By Id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/iobank/accounts/search/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"iobank",
+												"accounts",
+												"search",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "ipsum nostrud dolore",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/iobank/accounts/search/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"iobank",
+														"accounts",
+														"search",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "ipsum nostrud dolore",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "update Balance",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/iobank/accounts/deposit/:id?balance=-82384996.80184561",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"iobank",
+										"accounts",
+										"deposit",
+										":id"
+									],
+									"query": [
+										{
+											"key": "balance",
+											"value": "-82384996.80184561",
+											"description": "(Required) "
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/iobank/accounts/deposit/:id?balance=-82384996.80184561",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"iobank",
+												"accounts",
+												"deposit",
+												":id"
+											],
+											"query": [
+												{
+													"key": "balance",
+													"value": "-82384996.80184561"
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "create Account",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"balance\": 44799375.167334735,\n  \"id\": \"aute esse in anim sit\",\n  \"protocol\": \"BTC\",\n  \"userId\": 87537551\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/iobank/accounts/create",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"iobank",
+										"accounts",
+										"create"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"balance\": 44799375.167334735,\n  \"id\": \"aute esse in anim sit\",\n  \"protocol\": \"BTC\",\n  \"userId\": 87537551\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/iobank/accounts/create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"iobank",
+												"accounts",
+												"create"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "search",
+							"item": [
+								{
+									"name": "get Users",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/iobank/users/search",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"iobank",
+												"users",
+												"search"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/iobank/users/search",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"iobank",
+														"users",
+														"search"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "get User By Id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/iobank/users/search/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"iobank",
+												"users",
+												"search",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "-78124316",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/iobank/users/search/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"iobank",
+														"users",
+														"search",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "-78124316",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "save User",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"aliqua exercitation nulla\",\n  \"fullName\": \"cillum\",\n  \"userName\": \"culpa cu\",\n  \"id\": -2935193,\n  \"accounts\": [\n    {\n      \"balance\": 79384634.27747285,\n      \"protocol\": \"DOGE\",\n      \"id\": \"nisi aute ut tempor\",\n      \"user\": {\n        \"email\": \"non ex\",\n        \"fullName\": \"magna est ut sit\",\n        \"userName\": \"nostrud incididu\",\n        \"id\": 49795249,\n        \"accounts\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"balance\": -95322939.43517663,\n      \"protocol\": \"DOGE\",\n      \"id\": \"voluptate adipisicing\",\n      \"user\": {\n        \"email\": \"magna nostrud consectetur\",\n        \"fullName\": \"nulla est pariatur\",\n        \"userName\": \"fugiat non\",\n        \"id\": -61100452,\n        \"accounts\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/iobank/users/create",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"iobank",
+										"users",
+										"create"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"officia aliquip iru\",\n  \"fullName\": \"dolore\",\n  \"userName\": \"do ad\",\n  \"id\": 57008181,\n  \"accounts\": [\n    {\n      \"balance\": 78251308.78779384,\n      \"protocol\": \"USD\",\n      \"id\": \"voluptate eiusmod esse laboris\",\n      \"user\": {\n        \"email\": \"consectetur consequat quis\",\n        \"fullName\": \"sed eu sunt adipisicing est\",\n        \"userName\": \"mollit laboris qui magna\",\n        \"id\": -61963849,\n        \"accounts\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"balance\": -20427579.916172877,\n      \"protocol\": \"EUR\",\n      \"id\": \"magna aliquip in commodo\",\n      \"user\": {\n        \"email\": \"eu voluptate dolor\",\n        \"fullName\": \"reprehenderit dolor\",\n        \"userName\": \"nostrud ex sunt nulla\",\n        \"id\": -80857125,\n        \"accounts\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/iobank/users/create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"iobank",
+												"users",
+												"create"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "transactions",
+					"item": [
+						{
+							"name": "search",
+							"item": [
+								{
+									"name": "get Transactions",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/iobank/transactions/search",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"iobank",
+												"transactions",
+												"search"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/iobank/transactions/search",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"iobank",
+														"transactions",
+														"search"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "get Transaction By Id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/iobank/transactions/search/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"iobank",
+												"transactions",
+												"search",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "24f14f63-7a6a-ff68-960a-11ec7e7b1abc",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/iobank/transactions/search/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"iobank",
+														"transactions",
+														"search",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "24f14f63-7a6a-ff68-960a-11ec7e7b1abc",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "create Transaction",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": 22284741.720432684,\n  \"date\": \"1962-03-14T00:43:57.532Z\",\n  \"destination\": \"magna commodo Ut minim nostrud\",\n  \"fee\": 11803571.115744889,\n  \"protocol\": \"EUR\",\n  \"source\": \"labore\",\n  \"description\": \"mollit\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/iobank/transactions/create",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"iobank",
+										"transactions",
+										"create"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"amount\": 22284741.720432684,\n  \"date\": \"1962-03-14T00:43:57.532Z\",\n  \"destination\": \"magna commodo Ut minim nostrud\",\n  \"fee\": 11803571.115744889,\n  \"protocol\": \"EUR\",\n  \"source\": \"labore\",\n  \"description\": \"mollit\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/iobank/transactions/create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"iobank",
+												"transactions",
+												"create"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "get Transaction By Id 1",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/iobank/transactions/movements/:accountId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"iobank",
+										"transactions",
+										"movements",
+										":accountId"
+									],
+									"variable": [
+										{
+											"key": "accountId",
+											"value": "ipsum nostrud dolore",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/iobank/transactions/movements/:accountId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"iobank",
+												"transactions",
+												"movements",
+												":accountId"
+											],
+											"variable": [
+												{
+													"key": "accountId",
+													"value": "ipsum nostrud dolore",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8090",
+			"type": "string"
+		}
+	]
+}
