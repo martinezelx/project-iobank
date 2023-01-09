@@ -1,0 +1,22 @@
+server:
+  port: 8090
+
+spring:
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      jakarta:
+        persistence:
+          sharedCache:
+            # Due to a problem with Hibernate, which is using a deprecated property. This should be removed when fixed
+            # See https://github.com/spring-projects/spring-data-jpa/issues/2717 for more information
+            mode: UNSPECIFIED
+      hibernate:
+        jdbc:
+          time_zone: UTC
