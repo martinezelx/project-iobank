@@ -8,6 +8,8 @@ import java.util.UUID;
 public interface TransactionService {
     Transaction getTransaction(UUID id);
 
+    List<Transaction> getMovements(String accountId);
+
     List<Transaction> getTransactions();
 
     Transaction createTransaction(Transaction transaction);

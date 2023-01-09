@@ -215,4 +215,44 @@ class TransactionServiceImplTest {
 
         assertThrows(AccountBalanceNotEnoughException.class, () -> transactionService.createTransaction(transaction));
     }
+
+    @Test
+    void shouldGetTransactionsMovementsSuccess() {
+        List<Transaction> transactions = new ArrayList<>();
+        Transaction transaction1 = new Transaction();
+        transaction1.setReference(UUID.randomUUID());
+        transaction1.setSource("account1");
+        transaction1.setDestination("account2");
+        transaction1.setAmount(BigDecimal.valueOf(100));
+        transaction1.setProtocol(ProtocolType.BTC);
+        transaction1.setDate(Instant.now());
+        transaction1.setFee(BigDecimal.valueOf(10));
+        transaction1.setDescription("Test transaction 1");
+        transactions.add(transaction1);
+        Transaction transaction2 = new Transaction();
+        transaction2.setReference(UUID.randomUUID());
+        transaction2.setSource("account2");
+        transaction2.setDestination("account3");
+        transaction2.setAmount(BigDecimal.valueOf(50));
+        transaction2.setProtocol(ProtocolType.BTC);
+        transaction2.setDate(Instant.now());
+        transaction2.setFee(BigDecimal.valueOf(5));
+        transaction2.setDescription("Test transaction 2");
+        transactions.add(transaction2);
+
+        when(transactionRepository.findBySourceOrDestination("account2","account2"))
+                .thenReturn(transactions);
+
+        List<Transaction> result = transactionService.getMovements("account2");
+
+        assertNotNull(result);
+        assertEquals(2, result.size());
+        assertEquals(transaction1.getSource(), result.get(0).getSource());
+        assertEquals(transaction1.getAmount(), result.get(0).getAmount());
+        assertEquals(transaction2.getSource(), result.get(1).getSource());
+        assertEquals(transaction2.getAmount(), result.get(1).getAmount());
+
+        verify(transactionRepository, times(1))
+                .findBySourceOrDestination("account2","account2");
+    }
 }

@@ -27,6 +27,8 @@ and leave the current one only for accounts and transactions.
 2. Perform more tests for the different exceptions.
 3. Several improvements in the code to make it more readable and maintainable.
 4. Some change in the nomenclature of the method names may be necessary to better adapt it to the SOLID principle.
+5. Fix swagger schemas.
+6. Add more logs.
 
 ## Run tests
 You can use your favorite IDE to run the tests or use the following command:
@@ -48,19 +50,31 @@ Since the project uses SpringDoc OpenApi v2, we can see the available endpoints 
 In [postman](postman) folder you can find the collection of endpoints in JSON.
 
 #### Create user: 
-- [localhost:8090/api/v1/iobank/users/create](localhost:8090/api/v1/iobank/users/create)
+- [POST] -localhost:8090/api/v1/iobank/users/create
+
 #### Create account: 
-- [localhost:8090/api/v1/iobank/accounts/create](localhost:8090/api/v1/iobank/accounts/create)
+- [POST] -localhost:8090/api/v1/iobank/accounts/create
+
 #### Create transaction:
-- [localhost:8090/api/v1/iobank/transactions/create](localhost:8090/api/v1/iobank/transactions/create)
-#### Get user (also by Id):
-- [localhost:8090/api/v1/iobank/users/search](localhost:8090/api/v1/iobank/users/search)
-#### Get account (also by Id):
-- [localhost:8090/api/v1/iobank/accounts/search](localhost:8090/api/v1/iobank/accounts/search)
-#### Get transaction (also by Id):
-- [localhost:8090/api/v1/iobank/transactions/search](localhost:8090/api/v1/iobank/transactions/search)
+- [POST] -localhost:8090/api/v1/iobank/transactions/create
+
+#### Get user:
+- [GET] - localhost:8090/api/v1/iobank/users/search
+- [GET] - localhost:8090/api/v1/iobank/users/search/{id}
+
+#### Get account:
+- [GET] - localhost:8090/api/v1/iobank/accounts/search
+- [GET] - localhost:8090/api/v1/iobank/accounts/search/{id}
+
+#### Get transaction:
+- [GET] - localhost:8090/api/v1/iobank/transactions/search
+- [GET] - localhost:8090/api/v1/iobank/transactions/search/{id}
+
 #### Create deposit:
-- [localhost:8090/api/v1/iobank/accounts/deposit/{id}](localhost:8090/api/v1/iobank/accounts/search)
+- [PUT] - localhost:8090/api/v1/iobank/accounts/deposit/{id}
+
+#### Get Transaction by id account:
+- [GET] - localhost:8090/api/v1/iobank/transactions/movements/{accountId}
 
 ### Examples to call the endpoints
 You can use the HTTP client of your choice to call the endpoints. In the next examples I will use Postman to perform the requests.

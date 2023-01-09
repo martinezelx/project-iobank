@@ -46,4 +46,11 @@ public class TransactionController {
                 transactionMapper.toDto(transactionService.getTransaction(id)),
                 HttpStatus.OK);
     }
+
+    @GetMapping("/movements/{accountId}")
+    public ResponseEntity<List<TransactionDto>> getTransactionById(@PathVariable String accountId) {
+        return new ResponseEntity<>(
+                transactionMapper.listToDto(transactionService.getMovements(accountId)),
+                HttpStatus.OK);
+    }
 }

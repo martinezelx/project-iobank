@@ -33,6 +33,11 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
+    public List<Transaction> getMovements(String accountId) {
+        return transactionRepository.findBySourceOrDestination(accountId, accountId);
+    }
+
+    @Override
     public List<Transaction> getTransactions() {
         return transactionRepository.findAll();
     }

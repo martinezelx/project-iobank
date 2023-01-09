@@ -183,4 +183,60 @@ class TransactionControllerTest {
 
         verify(transactionService, times(1)).getTransaction(uuid);
     }
+
+    @Test
+    void shouldGetMovements() throws Exception {
+        List<Transaction> transactions = new ArrayList<>();
+        Transaction transaction1 = new Transaction();
+        transaction1.setReference(UUID.randomUUID());
+        transaction1.setSource("account1");
+        transaction1.setDestination("account2");
+        transaction1.setAmount(BigDecimal.valueOf(100));
+        transaction1.setProtocol(ProtocolType.BTC);
+        transaction1.setDate(Instant.now());
+        transaction1.setFee(BigDecimal.valueOf(10));
+        transaction1.setDescription("Test transaction 1");
+        transactions.add(transaction1);
+        Transaction transaction2 = new Transaction();
+        transaction2.setReference(UUID.randomUUID());
+        transaction2.setSource("account2");
+        transaction2.setDestination("account3");
+        transaction2.setAmount(BigDecimal.valueOf(50));
+        transaction2.setProtocol(ProtocolType.BTC);
+        transaction2.setDate(Instant.now());
+        transaction2.setFee(BigDecimal.valueOf(5));
+        transaction2.setDescription("Test transaction 2");
+        transactions.add(transaction2);
+
+        List<TransactionDto> transactionDtos = new ArrayList<>();
+        TransactionDto transactionDto1 = new TransactionDto();
+        transactionDto1.setReference(transaction1.getReference());
+        transactionDto1.setSource(transaction1.getSource());
+        transactionDto1.setDestination(transaction1.getDestination());
+        transactionDto1.setAmount(transaction1.getAmount());
+        transactionDto1.setProtocol(transaction1.getProtocol());
+        transactionDto1.setDate(transaction1.getDate());
+        transactionDto1.setFee(transaction1.getFee());
+        transactionDto1.setDescription(transaction1.getDescription());
+        transactionDtos.add(transactionDto1);
+        TransactionDto transactionDto2 = new TransactionDto();
+        transactionDto2.setReference(transaction2.getReference());
+        transactionDto2.setSource(transaction2.getSource());
+        transactionDto2.setDestination(transaction2.getDestination());
+        transactionDto2.setAmount(transaction2.getAmount());
+        transactionDto2.setProtocol(transaction2.getProtocol());
+        transactionDto2.setDate(transaction2.getDate());
+        transactionDto2.setFee(transaction2.getFee());
+        transactionDto2.setDescription(transaction2.getDescription());
+        transactionDtos.add(transactionDto2);
+
+        when(transactionService.getMovements("account2")).thenReturn(transactions);
+        when(transactionMapper.listToDto(transactions)).thenReturn(transactionDtos);
+
+        mockMvc.perform(get("/api/v1/iobank/transactions/movements/" + "account2"))
+                .andExpect(status().isOk());
+
+        verify(transactionService, times(1)).getMovements("account2");
+        verify(transactionMapper, times(1)).listToDto(transactions);
+    }
 }
