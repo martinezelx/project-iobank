@@ -26,6 +26,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -164,5 +165,34 @@ class AccountControllerTest {
                 .andExpect(status().isNotFound());
 
         verify(accountService, times(1)).getAccount("123");
+    }
+
+    @Test
+    void shouldPutBalanceInAccount() throws Exception {
+        Account account = new Account();
+        account.setId("123");
+        account.setBalance(BigDecimal.valueOf(100));
+        account.setProtocol(ProtocolType.BTC);
+        User user = new User();
+        user.setId(1L);
+        account.setUser(user);
+
+        AccountDto accountDto = new AccountDto();
+        accountDto.setId("123");
+        accountDto.setBalance(BigDecimal.valueOf(100));
+        accountDto.setProtocol(ProtocolType.BTC);
+        accountDto.setUserId(1L);
+
+        BigDecimal newBalance = BigDecimal.valueOf(10);
+
+        when(accountService.depositBalanceInAccount("123", newBalance)).thenReturn(account);
+        when(accountMapper.toDto(account)).thenReturn(accountDto);
+
+        mockMvc.perform(put("/api/v1/iobank/accounts/deposit/123")
+                        .param("balance", String.valueOf(newBalance)))
+                .andExpect(status().isOk());
+
+        verify(accountService, times(1)).depositBalanceInAccount("123", newBalance);
+        verify(accountMapper, times(1)).toDto(account);
     }
 }

@@ -50,8 +50,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Account depositBalanceInAccount(String id, BigDecimal newBalance) {
-        Account account = accountRepository.findById(id)
-                .orElseThrow(() -> new AccountNotFoundException("Account with id " + id + " not found"));
+        Account account = getAccount(id);
         account.setBalance(account.getBalance().add(newBalance));
         return accountRepository.save(account);
     }

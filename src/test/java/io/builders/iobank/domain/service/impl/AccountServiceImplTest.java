@@ -5,7 +5,6 @@ import io.builders.iobank.domain.model.Account;
 import io.builders.iobank.domain.model.ProtocolType;
 import io.builders.iobank.domain.model.User;
 import io.builders.iobank.domain.port.repository.database.AccountRepository;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -179,7 +178,6 @@ class AccountServiceImplTest {
         verify(accountRepository, times(1)).save(account);
     }
 
-    @Disabled("Disabled")
     @Test
     void shouldUpdateBalanceAccountSuccess() {
         Account account = new Account();
@@ -190,6 +188,7 @@ class AccountServiceImplTest {
         user.setId(1L);
         account.setUser(user);
 
+        when(accountRepository.save(any(Account.class))).thenReturn(account);
         when(accountRepository.findById("123")).thenReturn(Optional.of(account));
 
         Account result = accountService.depositBalanceInAccount("123", new BigDecimal(500));
