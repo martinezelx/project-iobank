@@ -5,13 +5,11 @@ import io.builders.iobank.domain.model.User;
 import io.builders.iobank.domain.port.repository.database.UserRepository;
 import io.builders.iobank.domain.service.UserService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @RequiredArgsConstructor
-@Slf4j
 @Service
 public class UserServiceImpl implements UserService {
 

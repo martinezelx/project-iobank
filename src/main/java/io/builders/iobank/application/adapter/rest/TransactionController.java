@@ -19,7 +19,7 @@ import java.util.UUID;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(value = "/api/v1/iobank/transactions")
+@RequestMapping(value = "/api/v1/transactions")
 public class TransactionController {
 
     private final TransactionService transactionService;
@@ -48,7 +48,7 @@ public class TransactionController {
     }
 
     @GetMapping("/movements/{accountId}")
-    public ResponseEntity<List<TransactionDto>> getTransactionById(@PathVariable String accountId) {
+    public ResponseEntity<List<TransactionDto>> getTransactionForAccount(@PathVariable String accountId) {
         return new ResponseEntity<>(
                 transactionMapper.listToDto(transactionService.getMovements(accountId)),
                 HttpStatus.OK);

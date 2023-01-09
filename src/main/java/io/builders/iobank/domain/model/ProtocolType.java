@@ -1,6 +1,6 @@
 package io.builders.iobank.domain.model;
 
-public enum ProtocolType { // TODO hacer dos enums para cada capa
+public enum ProtocolType {
     USD("USD"),
     EUR("EUR"),
     BTC("BTC"),

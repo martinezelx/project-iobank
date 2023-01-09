@@ -65,7 +65,7 @@ class AccountControllerTest {
         when(accountService.saveAccount(any(Account.class))).thenReturn(account);
         when(accountMapper.toDto(account)).thenReturn(accountDto);
 
-        mockMvc.perform(post("/api/v1/iobank/accounts/create")
+        mockMvc.perform(post("/api/v1/accounts/create")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(accountDto)))
                 .andExpect(status().isCreated())
@@ -112,7 +112,7 @@ class AccountControllerTest {
         when(accountService.getAccounts()).thenReturn(accounts);
         when(accountMapper.listToDto(accounts)).thenReturn(accountDtos);
 
-        mockMvc.perform(get("/api/v1/iobank/accounts/search"))
+        mockMvc.perform(get("/api/v1/accounts/search"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].id", is("123")))
                 .andExpect(jsonPath("$[0].balance", is(100)))
@@ -146,7 +146,7 @@ class AccountControllerTest {
         when(accountService.getAccount("123")).thenReturn(account);
         when(accountMapper.toDto(account)).thenReturn(accountDto);
 
-        mockMvc.perform(get("/api/v1/iobank/accounts/search/123"))
+        mockMvc.perform(get("/api/v1/accounts/search/123"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value("123"))
                 .andExpect(jsonPath("$.balance").value(100))
@@ -158,10 +158,10 @@ class AccountControllerTest {
     }
 
     @Test
-    public void shouldReturnAccountNotFoundException() throws Exception {
+    void shouldReturnAccountNotFoundException() throws Exception {
         when(accountService.getAccount("123")).thenThrow(new AccountNotFoundException("Account not found"));
 
-        mockMvc.perform(get("/api/v1/iobank/accounts/search/123"))
+        mockMvc.perform(get("/api/v1/accounts/search/123"))
                 .andExpect(status().isNotFound());
 
         verify(accountService, times(1)).getAccount("123");
@@ -185,14 +185,14 @@ class AccountControllerTest {
 
         BigDecimal newBalance = BigDecimal.valueOf(10);
 
-        when(accountService.depositBalanceInAccount("123", newBalance)).thenReturn(account);
+        when(accountService.depositMoneyIntoAccount("123", newBalance)).thenReturn(account);
         when(accountMapper.toDto(account)).thenReturn(accountDto);
 
-        mockMvc.perform(put("/api/v1/iobank/accounts/deposit/123")
+        mockMvc.perform(put("/api/v1/accounts/deposit/123")
                         .param("balance", String.valueOf(newBalance)))
                 .andExpect(status().isOk());
 
-        verify(accountService, times(1)).depositBalanceInAccount("123", newBalance);
+        verify(accountService, times(1)).depositMoneyIntoAccount("123", newBalance);
         verify(accountMapper, times(1)).toDto(account);
     }
 }

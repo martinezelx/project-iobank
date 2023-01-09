@@ -73,7 +73,7 @@ class TransactionControllerTest {
         when(transactionService.createTransaction(any(Transaction.class))).thenReturn(transaction);
         when(transactionMapper.toDto(transaction)).thenReturn(transactionDto);
 
-        mockMvc.perform(post("/api/v1/iobank/transactions/create")
+        mockMvc.perform(post("/api/v1/transactions/create")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(transactionDto)))
                 .andExpect(status().isCreated());
@@ -128,7 +128,7 @@ class TransactionControllerTest {
         when(transactionService.getTransactions()).thenReturn(transactions);
         when(transactionMapper.listToDto(transactions)).thenReturn(transactionDtos);
 
-        mockMvc.perform(get("/api/v1/iobank/transactions/search"))
+        mockMvc.perform(get("/api/v1/transactions/search"))
                 .andExpect(status().isOk());
 
         verify(transactionService, times(1)).getTransactions();
@@ -163,7 +163,7 @@ class TransactionControllerTest {
         when(transactionService.getTransaction(uuid)).thenReturn(transaction);
         when(transactionMapper.toDto(transaction)).thenReturn(transactionDto);
 
-        mockMvc.perform(get("/api/v1/iobank/transactions/search/" + uuid))
+        mockMvc.perform(get("/api/v1/transactions/search/" + uuid))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.source").value("account1"))
                 .andExpect(jsonPath("$.destination").value("account2"));
@@ -173,12 +173,12 @@ class TransactionControllerTest {
     }
 
     @Test
-    public void shouldReturnTransactionNotFoundException() throws Exception {
+    void shouldReturnTransactionNotFoundException() throws Exception {
         UUID uuid = UUID.randomUUID();
 
         when(transactionService.getTransaction(uuid)).thenThrow(new TransactionNotFoundException("Transaction not found"));
 
-        mockMvc.perform(get("/api/v1/iobank/transactions/search/" + uuid))
+        mockMvc.perform(get("/api/v1/transactions/search/" + uuid))
                 .andExpect(status().isNotFound());
 
         verify(transactionService, times(1)).getTransaction(uuid);
@@ -233,7 +233,7 @@ class TransactionControllerTest {
         when(transactionService.getMovements("account2")).thenReturn(transactions);
         when(transactionMapper.listToDto(transactions)).thenReturn(transactionDtos);
 
-        mockMvc.perform(get("/api/v1/iobank/transactions/movements/" + "account2"))
+        mockMvc.perform(get("/api/v1/transactions/movements/" + "account2"))
                 .andExpect(status().isOk());
 
         verify(transactionService, times(1)).getMovements("account2");

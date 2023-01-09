@@ -51,31 +51,31 @@ Since the project uses SpringDoc OpenApi v2, we can see the available endpoints 
 In [postman](postman) folder you can find the collection of endpoints in JSON.
 
 #### Create user: 
-- [POST] -localhost:8090/api/v1/iobank/users/create
+- [POST] -localhost:8090/api/v1/users/create
 
 #### Create account: 
-- [POST] -localhost:8090/api/v1/iobank/accounts/create
+- [POST] -localhost:8090/api/v1/accounts/create
 
 #### Create transaction:
-- [POST] -localhost:8090/api/v1/iobank/transactions/create
+- [POST] -localhost:8090/api/v1/transactions/create
 
 #### Get user:
-- [GET] - localhost:8090/api/v1/iobank/users/search
-- [GET] - localhost:8090/api/v1/iobank/users/search/{id}
+- [GET] - localhost:8090/api/v1/users/search
+- [GET] - localhost:8090/api/v1/users/search/{id}
 
 #### Get account:
-- [GET] - localhost:8090/api/v1/iobank/accounts/search
-- [GET] - localhost:8090/api/v1/iobank/accounts/search/{id}
+- [GET] - localhost:8090/api/v1/accounts/search
+- [GET] - localhost:8090/api/v1/accounts/search/{id}
 
 #### Get transaction:
-- [GET] - localhost:8090/api/v1/iobank/transactions/search
-- [GET] - localhost:8090/api/v1/iobank/transactions/search/{id}
+- [GET] - localhost:8090/api/v1/transactions/search
+- [GET] - localhost:8090/api/v1/transactions/search/{id}
 
 #### Create deposit:
-- [PUT] - localhost:8090/api/v1/iobank/accounts/deposit/{id}
+- [PUT] - localhost:8090/api/v1/accounts/deposit/{id}
 
 #### Get Transaction by id account:
-- [GET] - localhost:8090/api/v1/iobank/transactions/movements/{accountId}
+- [GET] - localhost:8090/api/v1/transactions/movements/{accountId}
 
 ### Examples to call the endpoints
 You can use the HTTP client of your choice to call the endpoints. In the next examples I will use Postman to perform the requests.

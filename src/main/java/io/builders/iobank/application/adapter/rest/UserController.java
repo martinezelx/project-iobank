@@ -18,7 +18,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(value = "/api/v1/iobank/users")
+@RequestMapping(value = "/api/v1/users")
 public class UserController {
 
     private final UserService userService;

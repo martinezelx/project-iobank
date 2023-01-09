@@ -6,14 +6,12 @@ import io.builders.iobank.domain.model.ProtocolType;
 import io.builders.iobank.domain.port.repository.database.AccountRepository;
 import io.builders.iobank.domain.service.AccountService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 @RequiredArgsConstructor
-@Slf4j
 @Service
 public class AccountServiceImpl implements AccountService {
 
@@ -49,7 +47,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public Account depositBalanceInAccount(String id, BigDecimal newBalance) {
+    public Account depositMoneyIntoAccount(String id, BigDecimal newBalance) {
         Account account = getAccount(id);
         account.setBalance(account.getBalance().add(newBalance));
         return accountRepository.save(account);

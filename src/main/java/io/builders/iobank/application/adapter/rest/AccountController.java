@@ -23,7 +23,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(value = "/api/v1/iobank/accounts")
+@RequestMapping(value = "/api/v1/accounts")
 @Validated
 public class AccountController {
 
@@ -56,7 +56,7 @@ public class AccountController {
     public ResponseEntity<AccountDto> updateBalance(@PathVariable String id,
                                                     @RequestParam @Positive BigDecimal balance) {
         return new ResponseEntity<>(
-                accountMapper.toDto(accountService.depositBalanceInAccount(id, balance)),
+                accountMapper.toDto(accountService.depositMoneyIntoAccount(id, balance)),
                 HttpStatus.OK);
     }
 }

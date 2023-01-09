@@ -17,5 +17,5 @@ public interface AccountService {
 
     Account updateAccount(Account account, BigDecimal balance);
 
-    Account depositBalanceInAccount(String id, BigDecimal balance);
+    Account depositMoneyIntoAccount(String id, BigDecimal balance);
 }

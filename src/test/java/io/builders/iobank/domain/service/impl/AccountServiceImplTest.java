@@ -191,7 +191,7 @@ class AccountServiceImplTest {
         when(accountRepository.save(any(Account.class))).thenReturn(account);
         when(accountRepository.findById("123")).thenReturn(Optional.of(account));
 
-        Account result = accountService.depositBalanceInAccount("123", new BigDecimal(500));
+        Account result = accountService.depositMoneyIntoAccount("123", new BigDecimal(500));
 
         assertNotNull(result);
         assertEquals("123", result.getId());

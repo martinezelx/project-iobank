@@ -26,7 +26,7 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/api/v1/iobank/accounts/search",
+											"raw": "{{baseUrl}}/api/v1/accounts/search",
 											"host": [
 												"{{baseUrl}}"
 											],
@@ -46,7 +46,7 @@
 												"method": "GET",
 												"header": [],
 												"url": {
-													"raw": "{{baseUrl}}/api/v1/iobank/accounts/search",
+													"raw": "{{baseUrl}}/api/v1/accounts/search",
 													"host": [
 														"{{baseUrl}}"
 													],
@@ -84,7 +84,7 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/api/v1/iobank/accounts/search/:id",
+											"raw": "{{baseUrl}}/api/v1/accounts/search/:id",
 											"host": [
 												"{{baseUrl}}"
 											],
@@ -112,7 +112,7 @@
 												"method": "GET",
 												"header": [],
 												"url": {
-													"raw": "{{baseUrl}}/api/v1/iobank/accounts/search/:id",
+													"raw": "{{baseUrl}}/api/v1/accounts/search/:id",
 													"host": [
 														"{{baseUrl}}"
 													],
@@ -160,7 +160,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/api/v1/iobank/accounts/deposit/:id?balance=-82384996.80184561",
+									"raw": "{{baseUrl}}/api/v1/accounts/deposit/:id?balance=-82384996.80184561",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -195,7 +195,7 @@
 										"method": "PUT",
 										"header": [],
 										"url": {
-											"raw": "{{baseUrl}}/api/v1/iobank/accounts/deposit/:id?balance=-82384996.80184561",
+											"raw": "{{baseUrl}}/api/v1/accounts/deposit/:id?balance=-82384996.80184561",
 											"host": [
 												"{{baseUrl}}"
 											],
@@ -260,7 +260,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/api/v1/iobank/accounts/create",
+									"raw": "{{baseUrl}}/api/v1/accounts/create",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -289,7 +289,7 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/api/v1/iobank/accounts/create",
+											"raw": "{{baseUrl}}/api/v1/accounts/create",
 											"host": [
 												"{{baseUrl}}"
 											],
@@ -335,7 +335,7 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/api/v1/iobank/users/search",
+											"raw": "{{baseUrl}}/api/v1/users/search",
 											"host": [
 												"{{baseUrl}}"
 											],
@@ -355,7 +355,7 @@
 												"method": "GET",
 												"header": [],
 												"url": {
-													"raw": "{{baseUrl}}/api/v1/iobank/users/search",
+													"raw": "{{baseUrl}}/api/v1/users/search",
 													"host": [
 														"{{baseUrl}}"
 													],
@@ -393,7 +393,7 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/api/v1/iobank/users/search/:id",
+											"raw": "{{baseUrl}}/api/v1/users/search/:id",
 											"host": [
 												"{{baseUrl}}"
 											],
@@ -421,7 +421,7 @@
 												"method": "GET",
 												"header": [],
 												"url": {
-													"raw": "{{baseUrl}}/api/v1/iobank/users/search/:id",
+													"raw": "{{baseUrl}}/api/v1/users/search/:id",
 													"host": [
 														"{{baseUrl}}"
 													],
@@ -482,7 +482,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/api/v1/iobank/users/create",
+									"raw": "{{baseUrl}}/api/v1/users/create",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -511,7 +511,7 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/api/v1/iobank/users/create",
+											"raw": "{{baseUrl}}/api/v1/users/create",
 											"host": [
 												"{{baseUrl}}"
 											],
@@ -557,7 +557,7 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/api/v1/iobank/transactions/search",
+											"raw": "{{baseUrl}}/api/v1/transactions/search",
 											"host": [
 												"{{baseUrl}}"
 											],
@@ -577,7 +577,7 @@
 												"method": "GET",
 												"header": [],
 												"url": {
-													"raw": "{{baseUrl}}/api/v1/iobank/transactions/search",
+													"raw": "{{baseUrl}}/api/v1/transactions/search",
 													"host": [
 														"{{baseUrl}}"
 													],
@@ -615,7 +615,7 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/api/v1/iobank/transactions/search/:id",
+											"raw": "{{baseUrl}}/api/v1/transactions/search/:id",
 											"host": [
 												"{{baseUrl}}"
 											],
@@ -643,7 +643,7 @@
 												"method": "GET",
 												"header": [],
 												"url": {
-													"raw": "{{baseUrl}}/api/v1/iobank/transactions/search/:id",
+													"raw": "{{baseUrl}}/api/v1/transactions/search/:id",
 													"host": [
 														"{{baseUrl}}"
 													],
@@ -704,7 +704,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/api/v1/iobank/transactions/create",
+									"raw": "{{baseUrl}}/api/v1/transactions/create",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -733,7 +733,7 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/api/v1/iobank/transactions/create",
+											"raw": "{{baseUrl}}/api/v1/transactions/create",
 											"host": [
 												"{{baseUrl}}"
 											],
@@ -771,7 +771,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/api/v1/iobank/transactions/movements/:accountId",
+									"raw": "{{baseUrl}}/api/v1/transactions/movements/:accountId",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -799,7 +799,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{baseUrl}}/api/v1/iobank/transactions/movements/:accountId",
+											"raw": "{{baseUrl}}/api/v1/transactions/movements/:accountId",
 											"host": [
 												"{{baseUrl}}"
 											],

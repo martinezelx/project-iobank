@@ -41,7 +41,7 @@ class UserControllerTest {
     private UserMapper userMapper;
 
     @Test
-    public void shouldCreateUser() throws Exception {
+    void shouldCreateUser() throws Exception {
         UserDto userDto = new UserDto();
         userDto.setFullName("John Smith");
         userDto.setUserName("jsmith");
@@ -56,7 +56,7 @@ class UserControllerTest {
         when(userService.saveUser(user)).thenReturn(user);
         when(userMapper.toDto(user)).thenReturn(userDto);
 
-        mockMvc.perform(post("/api/v1/iobank/users/create")
+        mockMvc.perform(post("/api/v1/users/create")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(userDto)))
                 .andExpect(status().isCreated())
@@ -69,7 +69,7 @@ class UserControllerTest {
     }
 
     @Test
-    public void shouldGetUsers() throws Exception {
+    void shouldGetUsers() throws Exception {
         UserDto userDto1 = new UserDto();
         userDto1.setId(1L);
         userDto1.setFullName("John Smith");
@@ -101,7 +101,7 @@ class UserControllerTest {
         when(userService.getUsers()).thenReturn(userList);
         when(userMapper.listToDto(userList)).thenReturn(userDtoList);
 
-        mockMvc.perform(get("/api/v1/iobank/users/search"))
+        mockMvc.perform(get("/api/v1/users/search"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].id", is(1)))
                 .andExpect(jsonPath("$[0].fullName", is("John Smith")))
@@ -117,7 +117,7 @@ class UserControllerTest {
     }
 
     @Test
-    public void shouldGetUserById() throws Exception {
+    void shouldGetUserById() throws Exception {
         UserDto userDto = new UserDto();
         userDto.setId(1L);
         userDto.setFullName("John Smith");
@@ -133,7 +133,7 @@ class UserControllerTest {
         when(userService.getUser(1L)).thenReturn(user);
         when(userMapper.toDto(user)).thenReturn(userDto);
 
-        mockMvc.perform(get("/api/v1/iobank/users/search/1"))
+        mockMvc.perform(get("/api/v1/users/search/1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", is(1)))
                 .andExpect(jsonPath("$.fullName", is("John Smith")))
@@ -145,10 +145,10 @@ class UserControllerTest {
     }
 
     @Test
-    public void shouldReturnUserNotFoundException() throws Exception {
+    void shouldReturnUserNotFoundException() throws Exception {
         when(userService.getUser(1L)).thenThrow(new UserNotFoundException("User not found"));
 
-        mockMvc.perform(get("/api/v1/iobank/users/search/1"))
+        mockMvc.perform(get("/api/v1/users/search/1"))
                 .andExpect(status().isNotFound());
 
         verify(userService, times(1)).getUser(1L);
